@@ -30,3 +30,11 @@ def grab_initial_state_data():
 
     
 grab_initial_state_data()
+
+pickle_in = open('fiddy_states.pickle','rb')
+HPI_data = pickle.load(pickle_in)
+print(HPI_data)
+
+HPI_data.to_pickle('pickle.pickle')
+HPI_data2 = pd.read_pickle('pickle.pickle')
+print(HPI_data2)
