@@ -9,7 +9,7 @@ import pickle
 
 style = 'ggplot'
 
-quandl.ApiConfig.api_key = "YtHWyqZPrpUA26JNZBnV"  # enter your api key
+quandl.ApiConfig.api_key = "WXbfJsD-ZuVz85nzYJ4i"  # enter your api key
 df = quandl.get('WIKI/GOOGL')  # setting Data Frame
 # initial observation of data
 print(df.head())
