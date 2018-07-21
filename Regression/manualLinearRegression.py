@@ -21,3 +21,4 @@ def best_fit_slop(xs, ys):
 m = best_fit_slop(xs, ys)
 # printing the best fit\ slope we just found
 print('best fit slop is: {}'.format(m))
+
