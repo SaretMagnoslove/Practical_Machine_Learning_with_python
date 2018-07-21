@@ -29,7 +29,7 @@ ax1 = plt.subplot2grid((1, 1), (0, 0))
 
 HPI_data = pd.read_pickle('final.pickle')
 
-TXyear = HPI_data['TX'].resample('A', how='mean')
+TXyear = HPI_data['TX'].resample('A')
 print(TXyear.head())
 HPI_data['TX'].plot(ax=ax1, label='Monthly')
 TXyear.plot(ax=ax1, label='Yearly')
@@ -43,7 +43,7 @@ HPI_data['TX'].plot(ax=ax1, label='Monthly')
 TXyear.plot(ax=ax1)
 
 plt.legend(loc=4)
-plt.shoTXyear = HPI_data['TX'].resample('A', how='ohlc')
+plt.show()
 
 TXyear = HPI_data['TX'].resample('D', how='mean')
 print(TXyear.head())
