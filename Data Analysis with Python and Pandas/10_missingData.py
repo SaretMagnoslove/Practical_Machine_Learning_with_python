@@ -41,9 +41,9 @@ print(HPI_data[['TX', 'TX1yr']])
 # HPI_data.fillna(method='bfill', inplace=True)
 # fill with certain value
 # HPI_data.fillna(value=-99999, inplace=True)
-print(HPI_data.isnull().values.sum())
-HPI_data.fillna(value=0,limit=100,inplace=True)
-print(HPI_data.isnull().values.sum())
+# print(HPI_data.isnull().values.sum())
+# HPI_data.fillna(value=0,limit=100,inplace=True)
+# print(HPI_data.isnull().values.sum())
 print(HPI_data[['TX', 'TX1yr']].head())
 # plotting the data
 HPI_data[['TX', 'TX1yr']].plot(ax=ax1)
