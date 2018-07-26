@@ -37,8 +37,50 @@ def HPI_Benchmark():
 
 def mortgage30():
     df = quandl.get("FMAC/MORTG", trim_start="1975-01-01", authtoken=api_key)
-    df["Value"] = (df["Value"]-df["Value"][0]) / df["Value"][0] * 100.0
+    df["Value"] = (df["Value"] - df["Value"][0]) / df["Value"][0] * 100.0
     df.columns = ['m30']
-    df=df.resample('1D')
-    df=df.resample('M').mean()
+    df = df.resample('1D')
+    df = df.resample('M').mean()
+    return df
+
+
+def stocks():
+    df = quandl.get("WFE/INDEXES_BSEINDIALIMITEDSPBSE", authtoken=api_key)
+    df["Value"] = (df["Value"] - df["Value"][0]) / df["Value"][0] * 100.0
+    df.columns = ['stocks']
+    return df
+
+
+def sp500():
+    df = pd.read_csv('AS-SP500.csv')
+    df.index = pd.to_datetime(df.date, format='%Y-%m-%d')
+    df.resample('M').mean()
+    df["close"] = (df["close"] - df["close"][0]) / df["close"][0] * 100.0
+    df.rename(columns={'close': 'sp500'}, inplace=True)
+    df = df['sp500']
+    return df
+
+
+def gdp():
+    df = quandl.get("BCB/4385", trim_start="1975-01-01", authtoken=api_key)
+    df["Value"] = (df["Value"] - df["Value"][0]) / df["Value"][0] * 100.0
+    df = df.resample('M').mean()
+    df.rename(columns={'Value': 'GDP'}, inplace=True)
+    df = df['GDP']
+    return df
+
+
+def us_unemployment():
+    df = quandl.get("ECPI/JOB_G", trim_start="1975-01-01", authtoken=api_key)
+    df["Unemployment Rate"] = (
+        df["Unemployment Rate"] -
+        df["Unemployment Rate"][0]) / df["Unemployment Rate"][0] * 100.0
+    df = df.resample('1D').mean()
+    df = df.resample('M').mean()
+    return df
+
+def women_emp():
+    df = quandl.get("BLSE/CEU0500000010", authtoken=api_key)
+    df["Value"] = (df["Value"] - df["Value"][0]) / df["Value"][0] * 100.0
+    df.columns = ['women_emp']
     return df
