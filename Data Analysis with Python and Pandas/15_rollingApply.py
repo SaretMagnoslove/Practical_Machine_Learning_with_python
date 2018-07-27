@@ -27,4 +27,3 @@ housing_data['label'] = [
     for (cur, fut) in zip(housing_data['US_HPI_future'], housing_data['United States'])
     ]
 print(housing_data.head())
-
