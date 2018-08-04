@@ -3,9 +3,12 @@ import matplotlib.dates as mdates
 import matplotlib.ticker as mticker
 from matplotlib.dates import bytespdate2num
 from matplotlib.finance import candlestick_ohlc
+from matplotlib import style
 import numpy as np
 import urllib
 
+# style.use('ggplot')
+style.use('fivethirtyeight')
 
 def graph_data(stock):
 
@@ -37,7 +40,11 @@ def graph_data(stock):
         ohlc.append(append_me)
         x += 1
 
-    candlestick_ohlc(ax1, ohlc, width=0.4, colorup='g', colordown='r')
+    # candlestick_ohlc(ax1, ohlc, width=0.4, colorup='g', colordown='r')
+    plt.plot(date, closep)
+    plt.plot(date, openp)
+
+
 
     for label in ax1.xaxis.get_ticklabels():
         label.set_rotation(45)
