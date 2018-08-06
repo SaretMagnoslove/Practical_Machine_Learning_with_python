@@ -48,13 +48,16 @@ def graph_data(stock):
     ax1.xaxis.set_major_formatter(mdates.DateFormatter('%Y-%m-%d'))
     ax1.xaxis.set_major_locator(mticker.MaxNLocator(10))
     ax1.grid(True)
+    # annotation example with arror
     ax1.annotate(
         'You are here!', (date[9], highp[9]),
         xytext=(0.8, 0.9),
         textcoords='axes fraction',
         arrowprops=dict(facecolor='grey', color='grey'))
 
+    # font dic example
     font_dict = {'family': 'sherif', 'color': 'darkred', 'size': 15}
+    # hard coded text
     ax1.text(date[4410], closep[1], 'Text Example', fontdict=font_dict)
 
     plt.xlabel('Date')
