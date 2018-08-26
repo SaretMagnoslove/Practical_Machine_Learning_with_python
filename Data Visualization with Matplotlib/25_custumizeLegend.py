@@ -136,8 +136,10 @@ def graph_data(stock):
     leg = ax3.legend(loc=9, ncol=2, prop={'size': 11})
     leg.get_frame().set_alpha(0.4)
 
-    plt.show()
+
     fig.savefig('EBAY.png', facecolor=fig.get_facecolor())
 
+    plt.show()
+    
 
 graph_data('EBAY')
