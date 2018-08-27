@@ -8,6 +8,7 @@ m = Basemap(
     urcrnrlat=90,
     urcrnrlon=180,
     resolution='l')
+
 m.drawcoastlines()
 m.drawcountries(linewidth=2)
 m.drawstates(color='b')
