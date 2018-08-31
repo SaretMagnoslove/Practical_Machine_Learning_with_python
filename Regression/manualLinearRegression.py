@@ -18,12 +18,27 @@ def best_fit_slop_and_intercept(xs, ys):
     return m, b
 
 
+def squared_error(y_orig, y_line):
+    return sum((y_orig - y_line)**2)
+
+
+def coefficient_of_determination(y_orig, y_line):
+    y_mean_line = [mean(y_orig) for y in y_orig]
+    squared_error_reg = squared_error(y_orig, y_line)
+    squared_error_mean = squared_error(y_orig, y_mean_line)
+    return 1 - (squared_error_reg / squared_error_mean)
+
+
 # running the function on the data we have
 m, b = best_fit_slop_and_intercept(xs, ys)
 # printing the best fit\ slope we just found
 print('best fit slop is: {} and the intercept is {}'.format(m, b))
 
 regression_line = [m * x + b for x in xs]
+
+# calculating r squared
+r_squared = coefficient_of_determination(ys, regression_line)
+print('r squared = {}'.format(r_squared))
 
 # predicting y value for a new unseen x
 predict_x = 8
