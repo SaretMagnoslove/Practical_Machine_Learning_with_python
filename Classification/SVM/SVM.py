@@ -12,7 +12,7 @@ y = np.array(df['class'])
 X_train, X_test, y_train, y_test = cross_validation.train_test_split(
     X, y, test_size=0.2)
 
-clf = svm.SVC() 
+clf = svm.SVC(probability=True) 
 clf.fit(X_train, y_train)
 
 accuracy = clf.score(X_test, y_test)
@@ -23,3 +23,6 @@ example_measures = example_measures.reshape(len(example_measures), -1)
 
 prediction = clf.predict(example_measures)
 print('prediction for set: {} is {}'.format(example_measures, prediction))
+
+probability = clf.predict_proba(example_measures)
+print('probability = {}'.format(probability))
